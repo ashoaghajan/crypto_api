@@ -1,25 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Layout, Space, Typography } from "antd";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { Homepage, Navbar, Exchanges, CryptoCurrencies, CryptoDetails, News  } from './components/components';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <div className="navbar">
+          <Navbar />
+        </div>
+        <div className="main">
+          <Layout>
+            <div className="routes">
+              <Switch>
+                <Route exact path='/'>
+                  <Homepage />
+                </Route>
+                <Route exact path='/exchanges'>
+                  <Exchanges/>
+                </Route>
+                <Route exact path='/cryptocurrencies'>
+                  <CryptoCurrencies />
+                </Route>
+                <Route exact path='/crypto/:coinId'>
+                  <CryptoDetails />
+                </Route>
+                <Route exact path='/news'>
+                  <News />
+                </Route>
+              </Switch>
+            </div>
+          </Layout>
+          <div className="footer">
+            <Typography.Title level={5} style={{ color: 'white' }}>
+              Cryptoverse <br />
+              All rights reserved
+            </Typography.Title>
+            <Space>
+              <Link to='/'>Home</Link>
+              <Link to='/exchanges'>Exchanges</Link>
+              <Link to='/news'>News</Link>
+            </Space>
+          </div>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
