@@ -14,7 +14,7 @@ const { Title } = Typography;
  
 const Homepage: React.FC<HomepageProps> = () => {
 
-    const { data, isFetching } = useGetCryptosQuery({});
+    const { data, isFetching } = useGetCryptosQuery(10);
     const globalStats: GlobalStats = data?.data?.stats;
 
     if(isFetching) return <div>'Loading...'</div>
