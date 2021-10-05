@@ -3,6 +3,7 @@ import moment from 'moment';
 import { Typography, Select, Row, Col, Card, Avatar } from 'antd';
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
 import { useGetCryptosQuery } from '../services/cryptoApi';
+import Loader from './Loader';
 
 interface NewsProps {
     simplified?: boolean
@@ -19,7 +20,7 @@ const News: React.FC<NewsProps> = ({ simplified }) => {
     const { data: cryptoNews, isFetching } = useGetCryptoNewsQuery({ category: newsCategory, count });
     const { data: cryptosList } = useGetCryptosQuery(100);
 
-    if(isFetching) return <div>'Loading...'</div>
+    if(isFetching) return <Loader />
 
     return ( 
         <Row gutter={[24, 24]}>

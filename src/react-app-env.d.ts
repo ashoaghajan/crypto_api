@@ -34,8 +34,12 @@ type News = {
 type CryptoDetails = {
     allTimeHigh: { price: string, timestamp: number }
     approvedSupply: boolean,
+    change: number,
     circulatingSupply: number,
+    iconUrl: string,
     id: number,
+    description: string,
+    links: { name: string, type: string, url: string }[]
     marketCap: number,
     name: string,
     numberOfExchanges: number,
@@ -44,5 +48,21 @@ type CryptoDetails = {
     rank: number,
     totalSupply: number,
     slug: string,
+    volume: number
+}
+
+type CoinHistory = {
+    change: number,
+    history: { price: string, timestamp: number }[]
+}
+
+type Exchanges = {
+    description: string,
+    iconUrl: string,
+    id: number,
+    marketShare: number,
+    name: string,
+    numberOfMarkets: number,
+    rank: number,
     volume: number
 }
