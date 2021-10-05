@@ -11,7 +11,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = () => {
     
     const [activeMenu, setActiveMenu] = useState(true);
-    const [screenSize, setScreenSize] = useState(0);
+    const [screenSize, setScreenSize] = useState(1024);
 
     useEffect(() => {
         const handleResize = () => setScreenSize(window.innerWidth);

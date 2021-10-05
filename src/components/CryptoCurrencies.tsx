@@ -43,7 +43,7 @@ const CryptoCurrencies: React.FC<CryptoCurrenciesProps> = ({ simplified }) => {
                         >
                             <p>Price: {millify(Number(currency.price))}</p>
                             <p>Market Cap: {millify(Number(currency.marketCap))}</p>
-                            <p>Dailty Change: {millify(Number(currency.change))}</p>
+                            <p>Dailty Change: {millify(Number(currency.change))}%</p>
                         </Card>
                     </Link>
                 </Col>
