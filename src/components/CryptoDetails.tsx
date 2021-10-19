@@ -26,7 +26,7 @@ const CryptoDetails: React.FC<CryptoDetailsProps> = () => {
     const history = useGetCryptoHistoryQuery({ coinId, timePeriod })?.data?.data;
     const details: CryptoDetails = data?.data?.coin;
   
-    const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
+    const time = ['24h', '7d', '30d', '1y', '5y'];
 
     const stats = [
       { title: 'Price to USD', value: `$ ${details?.price && millify(Number(details?.price))}`, icon: <DollarCircleOutlined /> },
