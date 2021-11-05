@@ -17,6 +17,7 @@ const Homepage: React.FC<HomepageProps> = () => {
 
     const { data, isFetching } = useGetCryptosQuery(10);
     const globalStats: GlobalStats = data?.data?.stats;
+    const { total24hVolume } = globalStats ? globalStats : { total24hVolume: 0 };
 
     if(isFetching) return <Loader />
 
@@ -34,7 +35,7 @@ const Homepage: React.FC<HomepageProps> = () => {
                 <Statistic title='Total Market Cap' value={millify(globalStats.totalMarketCap)}/>
             </Col>
             <Col span={12}>
-                <Statistic title='Total 24h Volume' value={millify(globalStats.total24hVolume)}/>
+                <Statistic title='Total 24h Volume' value={Number.isSafeInteger(total24hVolume) ? millify(total24hVolume) : 0}/>
             </Col>
             <Col span={12}>
                 <Statistic title='Totel Markets' value={millify(globalStats.totalMarkets)}/>
